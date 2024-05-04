@@ -42,6 +42,14 @@ export interface LogOptions {
      * If true, add an RFC3339 or RFC3339Nano timestamp at the beginning of every line of log output. Defaults to false.
      */
     timestamps?: boolean;
+
+    /**
+     * A time in RFC3339 format to select logs since this timestamp.
+     * If this value precedes the time a pod was started, only logs since the pod start will be returned.
+     * If this value is in the future, no logs will be returned.
+     * Only one of sinceSeconds or sinceTime may be specified.
+     */
+    sinceTime?: string;
 }
 
 export class Log {
